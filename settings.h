@@ -1,5 +1,5 @@
 //#define DEBUG_SERIAL    1
-//#define DEBUG_MQTT      1 
+//#define DEBUG_MQTT      1
 #define SERIAL_RATE     115200    // Serial speed for status info
 #define MAX485_DE       5         // D1, DE pin on the TTL to RS485 converter
 #define MAX485_RE_NEG   4         // D2, RE pin on the TTL to RS485 converter
@@ -25,7 +25,12 @@ const char* mqtt_server = "192.168.x.xx";     // MQTT server
 const char* mqtt_user = "xxxx";             // MQTT userid
 const char* mqtt_password = "xxxx";         // MQTT password
 const char* clientID = "growatt";                // MQTT client ID
-const char* topicRoot = "growatt";             // MQTT root topic for the device, keep / at the end
+const char* topicRoot = "growatt";             // MQTT root topic for the device, do not add a trailing slash
+
+// Home Assistant MQTT discovery
+const bool haDiscoveryEnabled = true;
+const char* haDiscoveryPrefix = "homeassistant";
+const char* haDeviceName = "Growatt 3-phase inverter";
 
 
 // Comment the entire second below for dynamic IP (including the define)

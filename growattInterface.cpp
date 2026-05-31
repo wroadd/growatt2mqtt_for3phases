@@ -271,7 +271,7 @@ uint8_t growattIF::ReadHoldingRegisters(char* json) {
       modbussettings.maxoutputreactivepp = growattInterface.getResponseBuffer(4); // Inverter M ax output reactive power percent  0-100: %, 255: not limited
       modbussettings.maxpower = ((growattInterface.getResponseBuffer(6) << 16) | growattInterface.getResponseBuffer(7)) * 0.1;
       modbussettings.voltnormal = growattInterface.getResponseBuffer(8) * 0.1;
-      strncpy(modbussettings.firmware, "      ", 6);
+      memset(modbussettings.firmware, 0, sizeof(modbussettings.firmware));
       modbussettings.firmware[0] = growattInterface.getResponseBuffer(9) >> 8;
       modbussettings.firmware[1] = growattInterface.getResponseBuffer(9) & 0xff;
       modbussettings.firmware[2] = growattInterface.getResponseBuffer(10) >> 8;
@@ -279,7 +279,7 @@ uint8_t growattIF::ReadHoldingRegisters(char* json) {
       modbussettings.firmware[4] = growattInterface.getResponseBuffer(11) >> 8;
       modbussettings.firmware[5] = growattInterface.getResponseBuffer(11) & 0xff;
 
-      strncpy(modbussettings.controlfirmware, "      ", 6);
+      memset(modbussettings.controlfirmware, 0, sizeof(modbussettings.controlfirmware));
       modbussettings.controlfirmware[0] = growattInterface.getResponseBuffer(12) >> 8;
       modbussettings.controlfirmware[1] = growattInterface.getResponseBuffer(12) & 0xff;
       modbussettings.controlfirmware[2] = growattInterface.getResponseBuffer(13) >> 8;
@@ -289,7 +289,7 @@ uint8_t growattIF::ReadHoldingRegisters(char* json) {
 
       modbussettings.startvoltage = growattInterface.getResponseBuffer(17) * 0.1;
 
-      strncpy(modbussettings.serial, "          ", 10);
+      memset(modbussettings.serial, 0, sizeof(modbussettings.serial));
       modbussettings.serial[0] = growattInterface.getResponseBuffer(23) >> 8;
       modbussettings.serial[1] = growattInterface.getResponseBuffer(23) & 0xff;
       modbussettings.serial[2] = growattInterface.getResponseBuffer(24) >> 8;

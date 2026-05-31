@@ -36,8 +36,8 @@ class growattIF {
     {
       int enable, safetyfuncen, maxoutputactivepp, maxoutputreactivepp;
       float  maxpower, voltnormal, startvoltage, gridvoltlowlimit, gridvolthighlimit, gridfreqlowlimit, gridfreqhighlimit, gridvoltlowconnlimit, gridvolthighconnlimit, gridfreqlowconnlimit, gridfreqhighconnlimit;
-      char firmware[6], controlfirmware[6];
-      char serial[10];
+      char firmware[7], controlfirmware[7];
+      char serial[11];
     };
 
     struct modbus_holding_registers modbussettings;
